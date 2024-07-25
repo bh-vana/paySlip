@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h3 {
+        color: red;
+        text-align: center;
+      }
+      body {
+        background: radial-gradient(white);
+        /* background-color: black; */
+      }
+      .flx {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      button {
+        color: #f7eedd;
+        background-color: #008dda;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        transition: 0.3s;
+        font-weight: bold;
+        border: 1px solid #008dda;
+      }
+      button:hover {
+        background-color: #f7eedd;
+        color: #008dda;
+        border: 1px solid #008dda;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flx">
+      <div>
+        <h3>Error</h3>
+        <%if(!ecode){%>
+        <h3>ECode is undefined</h3>
+        <%}%> <%if(!designation){%>
+        <h3>Designation is undefined</h3>
+        <%}%> <%if(!estatus){%>
+        <h3>Status is undefined</h3>
+        <%}%> <%if(!basicPay){%>
+        <h3>Basic Pay is undefined</h3>
+        <%}%> <%if(!cityCompensatory){%>
+        <h3>CityCompensatory is undefined</h3>
+        <%}%> <%if(!food){%>
+        <h3>Food is undefined</h3>
+        <%}%> <%if(!profTax){%>
+        <h3>Prof. Tax is undefined</h3>
+        <%}%> <%if(!pF){%>
+        <h3>PF is undefined</h3>
+        <%}%> <%if(!leaves){%>
+        <h3>Leaves is undefined</h3>
+        <%}%> <%if(!grossPay){%>
+        <h3>Gross Pay is undefined</h3>
+        <%}%> <%if(!netPay){%>
+        <h3>Net Pay is undefined</h3>
+        <%}%><%if(!ename){%>
+        <h3>Name is undefined</h3>
+        <%}%><%if(!doj){%>
+        <h3>DOJ is undefined</h3>
+        <%}%><%if(!stmtMonth){%>
+        <h3>Statement for Month is undefined</h3>
+        <%}%><%if(!houseRent){%>
+        <h3>House rent is undefined</h3>
+        <%}%><%if(!travel){%>
+        <h3>Travel is undefined</h3>
+        <%}%><%if(!performance){%>
+        <h3>Performance is undefined</h3>
+        <%}%><%if(!incomeTax){%>
+        <h3>IT is undefined</h3>
+        <%}%><%if(!ESI){%>
+        <h3>ESI is undefined</h3>
+        <%}%><%if(!others){%>
+        <h3>Others is undefined</h3>
+        <%}%><%if(!deductions){%>
+        <h3>Deductions is undefined</h3>
+        <%}%>
+        <div style="display: flex; justify-content: center">
+          <a href="/"><button>Upload new File</button></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

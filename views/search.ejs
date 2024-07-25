@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body 
+      {
+        font-family: Arial, sans-serif;
+        /* width: 210mm; */
+        /* height: 297mm; */
+        margin: 0;
+        /* padding: 20mm; */
+        box-sizing: border-box;
+        /* background-color: red; */
+        min-height: 100vh;
+        background: radial-gradient(#f5f2f5, #f9f6f8);
+      }
+      .container {
+        /* width: 100%; */
+        background-color: #fefefd;
+        width: 600px;
+        border: 1px solid #000;
+        padding: 10mm;
+        box-sizing: border-box;
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .header p {
+        margin: 5px 0;
+        font-size: 12px;
+      }
+      .section {
+        margin-bottom: 20px;
+      }
+      .section table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .section table,
+      .section th,
+      .section td {
+        border: 1px solid black;
+      }
+      .section th,
+      .section td {
+        padding: 5px;
+        text-align: left;
+      }
+      .section th {
+        background-color: #5096f3;
+      }
+      .footer {
+        text-align: left;
+        margin-top: 40px;
+      }
+      .signature {
+        margin-top: 60px;
+      }
+      .flx {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+      }
+      .gap{
+        margin-top: 50px;
+        margin-bottom: 50PX;
+       
+      }
+       #b1{
+        background-color: #09b5f4;
+        border-radius: 5px;
+        transition-duration: 0.4s;
+        font-size: 20px;
+        margin-left: 890px;
+      }
+      #b1:hover {
+        background-color: #09b5f4; /* Green */
+        color: white;
+      }
+      .header p{
+        font-size:15PX;
+      }
+      
+     
+    </style>
+  </head>
+  <body>
+    <div class="flx gap">
+      <form method="post" action="/search-emp">
+        <div class="b2">
+        <input type="text" placeholder="Employee Code" name="ecode" />
+        <button id="b2" type="submit">Search</button> </div>
+      </form>
+    </div>
+    <%if(locals.ecode){%>
+    <div class="flx gap">
+      <a href="/download" download="payslip.zip"
+        ><button id="b1">Download Payslip</button></a
+      >
+    </div>
+
+    <div class="flx gap">
+      <div class="container">
+        <div class="header">
+          <h1>Company Name</h1>
+          <p>LOCATION: NNNN NNNN XYZ .</p>
+          <p>ADDRESS: XXX NNNN XYZ .. </p>
+          <p>Ph Num XXXXXXXXX</p>
+          <h2>SALARY STATEMENT FOR THE MONTH OF NNNN</h2>
+        </div>
+        <div class="section">
+          <table>
+            <tr>
+              <th>Employee Code</th>
+              <td><%= ecode%></td>
+              <th>Date of Joining</th>
+              <td><%= doj%></td>
+            </tr>
+            <tr>
+              <th>Employee Name</th>
+              <td><%= ename%></td>
+              <th>Employment Status</th>
+              <td><%= estatus%></td>
+            </tr>
+            <tr>
+              <th>Designation</th>
+              <td><%= designation%></td>
+              <th>Statement for the month</th>
+              <td><%= stmtMonth%></td>
+            </tr>
+          </table>
+        </div>
+        <div class="section">
+          <table>
+            <tr>
+              <th>Classified Income</th>
+              <th>Amount (Rs.)</th>
+              <th>Deductions</th>
+              <th>Amount (Rs.)</th>
+            </tr>
+            <tr>
+              <td>Basic Pay</td>
+              <td><%= basicPay%></td>
+              <td>Professional Tax</td>
+              <td><%= profTax%></td>
+            </tr>
+            <tr>
+              <td>House Rent Allowance</td>
+              <td><%= houseRent%></td>
+              <td>Income Tax</td>
+              <td><%= incomeTax%></td>
+            </tr>
+            <tr>
+              <td>City Compensatory Allowance</td>
+              <td><%= cityCompensatory%></td>
+              <td>Provident Fund</td>
+              <td><%= pF%></td>
+            </tr>
+            <tr>
+              <td>Travel Allowance</td>
+              <td><%= travel%></td>
+              <td>ESI</td>
+              <td><%= ESI%></td>
+            </tr>
+            <tr>
+              <td>Food Allowance</td>
+              <td><%= food%></td>
+              <td>Leaves - Loss of Pay</td>
+              <td><%= leaves%></td>
+            </tr>
+            <tr>
+              <td>Performance Incentives</td>
+              <td><%= performance%></td>
+              <td>Others</td>
+              <td><%= others%></td>
+            </tr>
+            <tr>
+              <th>GROSS PAY</th>
+              <th><%= grossPay%></th>
+              <th>DEDUCTIONS</th>
+              <th><%= deductions%></th>
+            </tr>
+            <tr>
+              <th colspan="2">NET PAY</th>
+              <th colspan="2"><%= netPay%></th>
+            </tr>
+          </table>
+        </div>
+        <div class="footer">
+          <p>AUTHORISED SIGNATORY</p>
+          <p class="signature">H.R Executive</p>
+          <p>
+            We request you to verify employment details with our office on
+            email: NNNN@gmail.com ph:xxxxxxxxx
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <%}%> <%if(locals.notfound){%>
+    <h2><%= notfound%></h2>
+    <%}%>
+  </body>
+</html>
